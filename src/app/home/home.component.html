@@ -1,0 +1,43 @@
+
+<div class="bodybackground">
+    <img src="../../assets/img/8069125.jpg" class="w-100" alt="">
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="fromCurrency" class="form-label">From:</label>
+            <select class="form-select" [(ngModel)]="fromCurrency" (change)="onCurrencyChange()">
+              <option *ngFor="let currency of currencies | keyvalue" [value]="currency.key">
+                {{ currency.value }} ({{ currency.key }})
+              </option>
+            </select>
+          </div>
+          
+          <div class="col-md-4 mb-3">
+            <label for="toCurrency" class="form-label">To:</label>
+            <select class="form-select" [(ngModel)]="toCurrency" (change)="onCurrencyChange()">
+              <option *ngFor="let currency of currencies | keyvalue" [value]="currency.key">
+                {{ currency.value }} ({{ currency.key }})
+              </option>
+            </select>
+          </div>
+          
+          <div class="col-md-4 mb-3">
+            <label for="amount" class="form-label">Amount:</label>
+            <input type="number" class="form-control" [(ngModel)]="amount" (change)="onAmountChange()">
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <button class="btn btn-primary w-100" (click)="convertCurrency()">Convert</button>
+          </div>
+          
+          <div class="col-md-12 mb-3">
+            <label for="convertedAmount" class="form-label">Converted Amount:</label>
+            <input type="text" class="form-control" [value]="convertedAmount | number:'1.2-2'" readonly>
+          </div>
+        </div>
+      </div>
+</div>
+
+  
